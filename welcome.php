@@ -1,6 +1,9 @@
-<html>
-<body>
+<?php
+session_start();
+echo $_SESSION['user'];
 
-<form method="POST" aciton="logout.php">
-    <button name="logout">Logout</button>
+?>
+
+<form action="logout.php" method="post">
+    <button type="submit" name="out">OUT</button>
 </form>
