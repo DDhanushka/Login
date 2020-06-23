@@ -2,19 +2,20 @@
 <?php 
 
 // 	require_once('./config.php');
+require('config.php');
+	if(isset($_POST['register'])){
+		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
-// 	if(isset($_POST['register'])){
-// 		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-//         $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+        $hash = md5($password);
 
-//         $hash = md5($password);
+        $sql = "INSERT INTO user_login (username, password) VALUES ('$username','$hash')";
 
-//         $sql = "INSERT INTO user_login (username, password) VALUES ('$username','$hash')";
-
-//         if (mysqli_query($conn, $sql)) {
-//             header("Location: ./index.php");
-//         }
-// 	}elseif(isset($_POST['login'])){
+        if (mysqli_query($conn, $sql)) {
+            header("Location:index.php");
+        }
+    }
+    // elseif(isset($_POST['login'])){
 // 		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 //         $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
@@ -37,12 +38,9 @@
 
 // 	}
 
- ?>
 
-<?php
-require('config.php');
 
-if(isset($_POST['enter'])) {
+if(isset($_POST['login'])) {
     if($_POST['username'] != null && $_POST['username'] != null) {
         $username = $_POST['username'];
         $entered_password = $_POST['password'];
