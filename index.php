@@ -1,3 +1,18 @@
+<?php
+session_start();
+if($_SESSION["loggedIn"] === true && $_SESSION["loggedIn"]) {
+    header("location:welcome.php");
+    exit;
+}
+
+// require_once("config.php");
+// $username = $password = "";
+// $username_err = $password_err = "";
+
+
+
+?>
+
 <!doctype html>
 <html>
     <head>
