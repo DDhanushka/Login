@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if($_SESSION["loggedIn"] === true && $_SESSION["loggedIn"]) {
     header("location:welcome.php");
