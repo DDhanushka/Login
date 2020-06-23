@@ -6,11 +6,11 @@
 
     $conn = mysqli_connect($hostname, $username, '', $dbname);
 
-    if($conn){
-    	echo "success";
-    }else{
-    	echo "fail";
-    }
+    // if($conn){
+    // 	echo "success";
+    // }else{
+    // 	echo "fail";
+    // }
 
 
  ?>
