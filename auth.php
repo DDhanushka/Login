@@ -13,16 +13,26 @@
         if (mysqli_query($conn, $sql)) {
             header("Location: ./index.php");
         }
-	}elseif(issed($_POST['login'])){
+	}elseif(isset($_POST['login'])){
 		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
-        if (password_verify($password, $hash)) {
-		    echo "login";
-		}
-		else {
-		    echo "login failed";
-		}
+        $pwd = md5($password);
+
+        $sql = "SELECT username FROM user_login WHERE username = '$username' AND password ='$pwd'";
+
+        if($result=mysqli_query($conn,$sql))
+        {
+            if (mysqli_num_rows($result) > 0) {
+			  while($row = mysqli_fetch_assoc($result)) {
+			    echo "logged in";
+			  }
+			} else {
+			  echo "no results found";
+			}
+        }else{
+        	echo "didn't work";
+        }
 
 	}
 
