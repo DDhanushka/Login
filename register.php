@@ -13,7 +13,7 @@
         </br>
             <label>Password: </label>
             <input type="text" name="password">
-            <button name="enter" type="submit">Register</button>
+            <button name="register" value="register" type="submit">Register</button>
         </form>
     </body>
 </html>
